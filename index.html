@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAKOTOMALALA Tsantaniaina Karen — Product Owner</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f7f3f6; --surface:#ffffff; --ink:#2a2430; --muted:#6a6070; --line:#e0d5dc;
+  --accent:#9a4a68; --accent-ink:#ffffff; --tint:#f1e3ea; --mauve:#d9ccd4;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b171e; --surface:#26202a; --ink:#f1ecf2; --muted:#b4aab9; --line:#3b3340;
+    --accent:#f0a9c3; --accent-ink:#1b171e; --tint:#38262f; --mauve:#4a3f50; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b171e; --surface:#26202a; --ink:#f1ecf2; --muted:#b4aab9; --line:#3b3340;
+  --accent:#f0a9c3; --accent-ink:#1b171e; --tint:#38262f; --mauve:#4a3f50; color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4rem);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;line-height:1.12;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.25rem}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.7rem;padding-bottom:.7rem}
+.mono{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:800 .95rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav{display:flex;gap:1.1rem;flex-wrap:wrap;justify-content:flex-end}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--accent)}
+@media(max-width:620px){nav a:nth-child(n+4){display:none}}
+
+.hero{padding:3.5rem 0 3rem}
+.hero .who{color:var(--muted);font-weight:500;margin:0 0 1rem}
+.hero h1{font-size:clamp(2.1rem,6vw,4rem);font-weight:800;letter-spacing:-.02em;max-width:17ch}
+.lead{max-width:62ch;font-size:1.1rem;color:var(--muted);margin:1.3rem 0 0}
+
+/* carte user story : le moment fort de la page */
+.story{margin-top:2.2rem;max-width:640px;background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--accent);border-radius:12px;padding:1.3rem 1.5rem;box-shadow:0 6px 0 var(--mauve)}
+.story .tag{display:inline-block;background:var(--tint);color:var(--accent);font-weight:500;font-size:.85rem;padding:.15rem .7rem;border-radius:999px;margin-bottom:.7rem}
+.story p{margin:0;font:600 1.25rem/1.45 "Bricolage Grotesque",sans-serif}
+.story b{color:var(--accent);font-weight:800}
+.story small{display:block;margin-top:.8rem;color:var(--muted);font-size:.9rem}
+
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:10px;font-weight:500;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+
+section{padding:2.8rem 0;border-top:1px solid var(--line)}
+section h2{font-size:1.75rem;font-weight:700;margin-bottom:1.4rem}
+.grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:.4rem}
+.card p{margin:.4rem 0 0}
+.meta{color:var(--muted);font-size:.92rem}
+ul.plain{margin:.7rem 0 0;padding-left:1.1rem}
+ul.plain li{margin:.35rem 0}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 0;padding:0;list-style:none}
+.tags li{font-size:.82rem;background:var(--tint);padding:.2rem .7rem;border-radius:999px}
+
+/* encart licence informatique */
+.tech{background:var(--accent);color:var(--accent-ink);border-radius:18px;padding:2rem}
+.tech h2{margin-bottom:.8rem}
+.tech p{max-width:66ch;margin:.5rem 0 0}
+.tech ul{display:grid;gap:.6rem 2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));list-style:none;padding:0;margin:1.4rem 0 0}
+.tech li{border-top:1.5px solid currentColor;padding-top:.6rem;opacity:.95}
+.tech strong{display:block;font-weight:500}
+
+/* méthode : vraie séquence */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:.9rem}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--tint);color:var(--accent);font:800 1.1rem "Bricolage Grotesque",sans-serif}
+.steps strong{display:block;font-weight:500}
+.steps span{color:var(--muted)}
+
+.case{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.6rem}
+.case h3{font-size:1.5rem;font-weight:800}
+.facts{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));margin:1.2rem 0}
+.facts div{background:var(--tint);border-radius:12px;padding:.9rem 1rem}
+.facts b{display:block;font:800 1.9rem "Bricolage Grotesque",sans-serif;color:var(--accent);line-height:1}
+.facts span{font-size:.88rem;color:var(--muted)}
+.cols{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.cols h4{font:700 1rem "Bricolage Grotesque",sans-serif;margin:0 0 .3rem;color:var(--accent)}
+
+.skills{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.skills h3{font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:.4rem}
+.skills p{margin:0}
+.edu{list-style:none;margin:0;padding:0}
+.edu li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.2rem 1rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.edu strong{font-weight:500}
+
+.contact{background:var(--surface);border:2px solid var(--accent);border-radius:18px;padding:2rem}
+.contact h2{margin-bottom:.6rem}
+.contact a{font-weight:500;font-size:1.1rem;color:var(--accent)}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mono" href="#haut" aria-label="Haut de page">KR</a>
+    <nav aria-label="Sections">
+      <a href="#atout">Mon atout</a>
+      <a href="#methode">Ma méthode</a>
+      <a href="#reservepro">ReservePro</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="haut">
+<div class="hero">
+  <div class="wrap">
+    <p class="who">RAKOTOMALALA Tsantaniaina Karen · Étudiante en Licence Informatique · Antananarivo</p>
+    <h1>Product Owner : je relie les utilisateurs et les développeurs.</h1>
+    <p class="lead">Je recueille les besoins, je les transforme en user stories et je priorise le backlog selon la valeur pour le client. Grâce à ma formation en informatique, je comprends ce que l’équipe de développement construit, et je le dis avec ses mots.</p>
+
+    <div class="cta">
+      <a class="btn primary" href="#reservepro">Voir mon projet ReservePro</a>
+      <a class="btn ghost" href="#contact">Me contacter</a>
+    </div>
+  </div>
+</div>
+
+<section id="atout">
+  <div class="wrap">
+    <div class="tech">
+      <h2>Un Product Owner qui connaît le terrain technique</h2>
+      <p>Je suis en Licence Informatique au GE-IT, avec un parcours DevOps &amp; Infrastructure Cloud. Je ne code pas à la place de l’équipe, mais je sais de quoi on parle quand on discute de faisabilité, de livraison et de qualité.</p>
+      <ul>
+        <li><strong>Discuter avec les développeurs</strong>Je traduis une user story en fonctionnalités concrètes (calendrier, notifications, règles de priorité) avec l’équipe.</li>
+        <li><strong>Comprendre la livraison</strong>J’ai mis en place des conteneurs Docker et une chaîne CI/CD avec GitHub Actions pour automatiser tests et déploiement.</li>
+        <li><strong>Suivre le travail en équipe</strong>J’utilise Git et GitHub, et j’ai déployé un backend cloud sur Render en gérant les secrets et les journaux.</li>
+        <li><strong>Arbitrer avec lucidité</strong>Je pèse la valeur client face à l’effort technique, sans me laisser guider seulement par la facilité.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="methode">
+  <div class="wrap">
+    <h2>Ma méthode, de l’idée au produit</h2>
+    <ol class="steps">
+      <li><div><strong>Reformuler le besoin</strong><span>Je clarifie ce que l’utilisateur veut vraiment avant de parler de solution.</span></div></li>
+      <li><div><strong>Définir des personas</strong><span>Chaque besoin est cadré par un profil utilisateur précis.</span></div></li>
+      <li><div><strong>Écrire des user stories</strong><span>Format « En tant que… je veux… afin de… », classées par profil.</span></div></li>
+      <li><div><strong>Prioriser par valeur client</strong><span>Je classe le backlog selon l’impact pour l’utilisateur, plutôt que selon la facilité technique.</span></div></li>
+      <li><div><strong>Piloter par itérations courtes</strong><span>Des retours réguliers permettent d’ajuster le produit en continu.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="reservepro">
+  <div class="wrap">
+    <h2>Étude de cas : ReservePro</h2>
+    <article class="case">
+      <p class="meta">Product Owner · projet académique de bout en bout · L3 GE-IT, 2026</p>
+      <h3>Une plateforme de réservation de salles, de matériel et de véhicules</h3>
+      <div class="facts">
+        <div><b>3</b><span>personas : client externe, employé interne, administrateur</span></div>
+        <div><b>20</b><span>user stories, classées US-E, US-I et US-A</span></div>
+        <div><b>3 clics</b><span>maximum pour réserver, un critère de valeur client</span></div>
+        <div><b>20 / 20</b><span>user stories couvertes par le produit final</span></div>
+      </div>
+      <div class="cols">
+        <div>
+          <h4>Mon rôle</h4>
+          <ul class="plain">
+            <li>Cadrer chaque besoin avec trois personas avant le développement.</li>
+            <li>Rédiger les 20 user stories du backlog initial.</li>
+            <li>Traduire les stories en fonctionnalités avec l’équipe de développement : calendrier, notifications, règles de priorité.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Mes arbitrages</h4>
+          <ul class="plain">
+            <li>Réservation en moins de 3 clics placée en haut du backlog.</li>
+            <li>Priorité donnée aux clients sur les employés.</li>
+            <li>Choix guidés par la valeur client, pas par la facilité technique.</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="tags"><li>Personas</li><li>User stories</li><li>Backlog</li><li>Priorisation</li><li>Itérations courtes</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="agile">
+  <div class="wrap">
+    <h2>Le rôle de Product Owner, étudié et mis en pratique</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Responsabilités du PO</h3>
+        <p class="meta">Module Agile/Scrum · L3 GE-IT, 2026</p>
+        <p>Recherche sur la vision produit, la gestion et la priorisation du backlog, la communication et la collaboration avec les développeurs.</p>
+      </article>
+      <article class="card">
+        <h3>PO, Project Manager, Scrum Master</h3>
+        <p class="meta">Analyse comparative</p>
+        <p>Comparaison des trois rôles au sein d’une équipe Agile, pour savoir qui décide quoi.</p>
+      </article>
+      <article class="card">
+        <h3>Application mobile de services publics</h3>
+        <p class="meta">Étude de cas</p>
+        <p>User stories concurrentes et arbitrage de priorité selon l’impact et l’effort.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <h2>Compétences</h2>
+    <div class="skills">
+      <div><h3>Produit</h3><p>Analyse et reformulation de besoin<br>Définition de personas</p></div>
+      <div><h3>Backlog</h3><p>Rédaction de user stories<br>Priorisation par valeur client</p></div>
+      <div><h3>Collaboration</h3><p>Communication avec des profils variés (développeurs, clients)<br>Méthodes Agile / Scrum</p></div>
+      <div><h3>Culture technique</h3><p>Git, GitHub<br>Docker, Docker Compose, CI/CD<br>Linux, réseaux</p></div>
+      <div><h3>Outils</h3><p>Obsidian : notes et documentation<br>Trello : organisation des tâches</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <h2>Formation et langues</h2>
+    <ul class="edu">
+      <li><span><strong>Licence Informatique</strong> · GE-IT, Grande École de l’Innovation Technologique, Andranomena</span><span class="meta">Octobre 2023 à Octobre 2026</span></li>
+      <li><span><strong>Baccalauréat série C</strong> · Les Bambinos II, Ambatolampy · mention Assez bien</span><span class="meta">2022 à 2023</span></li>
+    </ul>
+    <p style="margin-top:1.2rem">Malagasy : langue maternelle · Français : courant · Anglais : intermédiaire</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Parlons de votre produit</h2>
+      <p style="margin:0 0 1rem">Écrivez-moi, je réponds volontiers.</p>
+      <p style="margin:0"><a href="mailto:karen.kakorak@gmail.com">karen.kakorak@gmail.com</a><br><a href="tel:+261344218148">034 42 181 48</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 RAKOTOMALALA Tsantaniaina Karen </div></footer>
+</body>
+</html>
